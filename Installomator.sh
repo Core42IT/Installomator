@@ -349,7 +349,7 @@ if [[ $(/usr/bin/arch) == "arm64" ]]; then
     fi
 fi
 VERSION="10.9beta"
-VERSIONDATE="2025-12-23"
+VERSIONDATE="2026-02-08"
 
 # MARK: Functions
 
@@ -1843,6 +1843,7 @@ affinityapp)
     name="Affinity"
     type="dmg"
     appName="Affinity.app"
+    blockingProcesses=( "Affinity Affinity Store" )
     downloadURL="https://downloads.affinity.studio/Affinity.dmg"
     expectedTeamID="5HD2ARTBFS"
     ;;
