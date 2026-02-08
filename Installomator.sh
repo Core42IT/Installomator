@@ -349,7 +349,7 @@ if [[ $(/usr/bin/arch) == "arm64" ]]; then
     fi
 fi
 VERSION="10.9beta"
-VERSIONDATE="2026-02-08"
+VERSIONDATE="2026-02-09"
 
 # MARK: Functions
 
@@ -693,7 +693,7 @@ checkRunningProcesses() {
                     kill)
                       printlog "killing process $x"
                       pkill $x
-                      sleep 5
+                      sleep 10
                       ;;
                     prompt_user|prompt_user_then_kill)
                       button=$(displaydialog "Quit “$x” to continue updating? $([[ -n $appNewVersion ]] && echo "Version $appversion is installed, but version $appNewVersion is available.") (Leave this dialogue if you want to activate this update later)." "The application “$x” needs to be updated.")
