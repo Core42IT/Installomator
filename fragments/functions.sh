@@ -340,7 +340,7 @@ checkRunningProcesses() {
                     kill)
                       printlog "killing process $x"
                       pkill $x
-                      sleep 10
+                      sleep 5
                       ;;
                     prompt_user|prompt_user_then_kill)
                       button=$(displaydialog "Quit “$x” to continue updating? $([[ -n $appNewVersion ]] && echo "Version $appversion is installed, but version $appNewVersion is available.") (Leave this dialogue if you want to activate this update later)." "The application “$x” needs to be updated.")
