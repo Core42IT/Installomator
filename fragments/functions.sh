@@ -405,7 +405,9 @@ checkRunningProcesses() {
                       ;;
                 esac
 
-                countedProcesses=$((countedProcesses + 1))
+                if pgrep -xq "$x"; then
+                    countedProcesses=$((countedProcesses + 1))
+                fi
             fi
         done
 

@@ -349,7 +349,7 @@ if [[ $(/usr/bin/arch) == "arm64" ]]; then
     fi
 fi
 VERSION="10.9beta"
-VERSIONDATE="2026-02-08"
+VERSIONDATE="2026-02-10"
 
 # MARK: Functions
 
@@ -758,7 +758,9 @@ checkRunningProcesses() {
                       ;;
                 esac
 
-                countedProcesses=$((countedProcesses + 1))
+                if pgrep -xq "$x"; then
+                    countedProcesses=$((countedProcesses + 1))
+                fi
             fi
         done
 
