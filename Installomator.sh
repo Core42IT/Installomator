@@ -349,7 +349,7 @@ if [[ $(/usr/bin/arch) == "arm64" ]]; then
     fi
 fi
 VERSION="10.9beta"
-VERSIONDATE="2026-02-10"
+VERSIONDATE="2026-02-11"
 
 # MARK: Functions
 
@@ -5375,6 +5375,13 @@ grandperspective)
     downloadURL="https://sourceforge.net/projects/grandperspectiv/files/latest/download"
     appNewVersion=$(curl -fs https://sourceforge.net/projects/grandperspectiv/files/grandperspective/ | grep -B 2 'Download Latest Version' | grep -oE '\/(\d|\.)+\/' | sed 's/\///g')
     expectedTeamID="3Z75QZGN66"
+    ;;
+granola)
+    name="Granola"
+    type="dmg"
+    downloadURL="https://api.granola.ai/v1/download-latest"
+    appNewVersion=$(curl -fsIL "https://api.granola.ai/v1/download-latest" | grep -i "^location" | awk '{print $2}' | sed -e 's/.*Granola-\(.*\).dmg.*/\1/' | cut -d '-' -f 1)
+    expectedTeamID="QZ7DHHLN25"
     ;;
 graphicconverter10)
     name="GraphicConverter 10"

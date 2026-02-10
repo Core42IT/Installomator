@@ -399,6 +399,7 @@ gpgsuite
 gpgsync
 grammarly
 grandperspective
+granola
 graphicconverter10
 grasshopper
 grooveomnidialerenterpriseedition
