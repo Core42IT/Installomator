@@ -1847,6 +1847,7 @@ affinityapp)
     appName="Affinity.app"
     blockingProcesses=( "Affinity Affinity Store" )
     downloadURL="https://downloads.affinity.studio/Affinity.dmg"
+    appNewVersion=$(curl -fs -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15" "https://www.affinity.studio/help/release-notes/" | grep -Eo "Improvements and fixes in version [0-9]+\.[0-9]+\.[0-9]+" | sed 's/.*-\([0-9\.][0-9\.]*\).*/\1/' | grep -Eo "[0-9]+\.[0-9]+(\.[0-9]+)?" | head -1 | xargs)
     expectedTeamID="5HD2ARTBFS"
     ;;
 affinitydesigner2)
@@ -2630,6 +2631,13 @@ bartender)
     downloadURL="https://www.macbartender.com/B2/updates/B4Latest/Bartender%204.dmg"
     expectedTeamID="8DD663WDX4"
     ;;
+bartender6)
+    name="Bartender 6"
+    type="dmg"
+    downloadURL="https://macbartender.com/B2/updates/B6Latest/Bartender%206.dmg"
+    appNewVersion=$(curl -fs "https://www.macbartender.com/Bartender6/release_notes/" | grep -A 1 "class=\"tab-pane fade show active\"" |  grep -Eo "Bartender [0-9]+\.[0-9]+\.[0-9]+" | sed 's/.*-\([0-9\.][0-9\.]*\).*/\1/' | grep -Eo "[0-9]+\.[0-9]+(\.[0-9]+)?" | head -1 | xargs)
+    expectedTeamID="24J875RH8J"
+    ;;
 basecamp3)
     name="Basecamp 3"
     type="dmg"
@@ -2794,6 +2802,13 @@ blitzit)
     downloadURL="$(downloadURLFromGit blitzit-hq desktop-releases)"
     appNewVersion="$(versionFromGit blitzit-hq desktop-releases)"
     expectedTeamID="29VYWQJ9TL"
+    ;;
+bookends)
+    name="Bookends"
+    type="dmg"
+    downloadURL="https://www.sonnysoftware.com/bookends-for-mac/downloads/Bookends.dmg"
+    appNewVersion=$(curl -fs "https://www.sonnysoftware.com/support/version-history" | grep -A 1 "class=\"release-heading\"" | sed 's/.*-\([0-9\.][0-9\.]*\).*/\1/' | grep -Eo "[0-9]+\.[0-9]+(\.[0-9]+)?" | head -1 | xargs)
+    expectedTeamID="P9457MD394"
     ;;
 boop)
     name="Boop"

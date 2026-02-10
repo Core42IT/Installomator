@@ -104,6 +104,7 @@ balenaetcher
 balsamiqwireframes
 bambustudio
 bartender
+bartender6
 basecamp3
 baseline
 baseline-nodaemon
@@ -123,6 +124,7 @@ blackhole2ch
 blackhole64ch
 blender
 blitzit
+bookends
 boop
 boxdrive
 boxsync
