@@ -349,7 +349,7 @@ if [[ $(/usr/bin/arch) == "arm64" ]]; then
     fi
 fi
 VERSION="10.9beta"
-VERSIONDATE="2026-03-10"
+VERSIONDATE="2026-03-18"
 
 # MARK: Functions
 
@@ -1848,7 +1848,7 @@ affinityapp)
     appName="Affinity.app"
     blockingProcesses=( "Affinity Affinity Store" )
     downloadURL="https://downloads.affinity.studio/Affinity.dmg"
-    appNewVersion=$(curl -fs -A "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.2 Safari/605.1.15" "https://www.affinity.studio/help/release-notes/" | grep -Eo "Improvements and fixes in version [0-9]+\.[0-9]+\.[0-9]+" | sed 's/.*-\([0-9\.][0-9\.]*\).*/\1/' | grep -Eo "[0-9]+\.[0-9]+(\.[0-9]+)?" | head -1 | xargs)
+    appNewVersion=$(curl -s https://affinity-update.s3.amazonaws.com/mac2/retail/studiopro.xml | grep -o 'sparkle:shortVersionString="[0-9.]*"' | grep -o '[0-9.]*' | tail -n1)
     expectedTeamID="5HD2ARTBFS"
     ;;
 affinitydesigner2)
